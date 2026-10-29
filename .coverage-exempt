@@ -1,0 +1,3 @@
+# 不量覆蓋率的專案程式檔，一行一個 fnmatch 樣式（* 也比對 /）；ae ci coverage-gate 讀取
+# 設定檔、migration、產生的程式已由工具預設排除；這裡只放專案自己的（例：進入點），每條上一行寫理由
+# 受保護路徑：加一條要 architect review
