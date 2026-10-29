@@ -13,6 +13,12 @@
 - 提出：architect（todo-design）
 -->
 
+### D-001 worktree 少了 `.gitmodules`，`ae pr open` 擋下，sandbox 內無法還原
+- 背景：`ae task new` 建的 worktree 沒有 checkout `.gitmodules`，git 視為未提交的刪除，`ae pr open` 拒絕；sandbox 禁止在 worktree 寫 `.gitmodules`，agent 無法還原。之後每張單都可能遇到
+- 選項：A. 甲方在自己的終端機（sandbox 外）跑 `git -C /Users/marcus/sandbox/ae-trial/.worktrees/project-init restore .gitmodules`，本單先繼續；工具問題另外回報給 agent-engineering ／ B. 甲方先修工具（worktree 的 sparse 設定或 `ae pr open` 的檢查）再繼續
+- 建議：A 先解這張單；同時把問題回報工具，否則之後每張單都要手動還原一次
+- 提出：manager（project-init）
+
 ## 已決定
 
 <!-- 範本：
