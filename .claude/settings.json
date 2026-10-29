@@ -52,11 +52,10 @@
   },
   "sandbox": {
     "enabled": true,
+    "enableWeakerNetworkIsolation": true,
     "failIfUnavailable": true,
     "allowUnsandboxedCommands": false,
-    "excludedCommands": [
-      "docker compose *"
-    ],
+    "excludedCommands": ["docker compose *"],
     "filesystem": {
       "allowWrite": [
         "~/.npm",
@@ -66,10 +65,7 @@
         "~/.m2",
         "~/.gradle"
       ],
-      "denyWrite": [
-        "./CLAUDE.md",
-        "./.agent/config.toml"
-      ]
+      "denyWrite": ["./CLAUDE.md", "./.agent/config.toml"]
     },
     "network": {
       "allowedDomains": [
