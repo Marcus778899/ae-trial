@@ -1,5 +1,5 @@
 # 專案指令。技術棧待甲方決定（見 docs/architecture.md「待決定」）；定案後由 stack-scaffold 單補上各端的指令。
-# docker 不可包在 make 裡（sandbox 限制）：整合測試直接下 docker compose，見 docs/architecture.md §4
+# docker 不可包在 make 裡（sandbox 限制）；第一階段不需要容器，見 docs/architecture.md §3
 -include .env
 
 .PHONY: help setup ci-setup check coverage lint-env

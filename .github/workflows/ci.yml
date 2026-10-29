@@ -32,7 +32,7 @@ jobs:
       - name: Detect Makefile
         id: detect
         run: if [ -f Makefile ]; then echo "found=true" >> "$GITHUB_OUTPUT"; else echo "found=false" >> "$GITHUB_OUTPUT"; fi
-      # 專案語言版本：技術棧待甲方決定（docs/architecture.md「待決定」），定案後由 stack-scaffold 單加上（例：actions/setup-node@v4）
+      # 專案語言版本：技術棧待甲方決定（docs/architecture.md「待決定」），定案後由 stack-scaffold 單加上（選 Python 以外的語言時，例：actions/setup-go@v5）
       # CI 用 .env.example 的預設值；需要機密的測試改用 GitHub secrets
       - name: Prepare env
         if: steps.detect.outputs.found == 'true'
@@ -46,7 +46,7 @@ jobs:
       # 改到的程式碼覆蓋率（門檻 80%）：只在開到整合分支的 PR 檢查；發版 PR 是已逐張檢查過的累積
       # make coverage 把 Cobertura／JaCoCo XML 寫到 coverage-reports/（寫法見 agent-engineering 的 backend-standards skill）
       # 需要 DB 時在這步之前加 docker compose up -d <服務>：測試在 runner 上跑，在容器裡跑報告路徑會對不回 repo
-      # 相依與 Makefile 一致：Install dependencies 跑 make ci-setup，這裡跑 make coverage；DB 定案後由 stack-scaffold 單補 docker compose up -d db
+      # 相依與 Makefile 一致：Install dependencies 跑 make ci-setup，這裡跑 make coverage；第一階段資料存記憶體，不需要開 DB
       - name: Coverage of changed lines
         if: steps.detect.outputs.found == 'true' && github.event_name == 'pull_request' && github.base_ref == 'develop'
         env:
