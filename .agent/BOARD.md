@@ -11,16 +11,17 @@
 
 | 日期 | 編號 | 決策 |
 |---|---|---|
+| 2026-10-29 | D-001 | worktree 缺 .gitmodules：甲方在 sandbox 外 git restore，工具問題另外回報 |
 
 ## 任務狀態
 
 | 任務 | 負責 | 狀態 | 嘗試 | 驗收證據 |
 |---|---|---|---|---|
-| project-init | architect | blocked | 0 |  |
+| project-init | architect | in-progress | 0 |  |
 
 ## 卡住／待甲方決定
 
-- D-001：project-init 的 worktree 缺 .gitmodules，ae pr open 擋下，sandbox 內無法還原（待甲方）
+- project-init：等甲方在終端機跑 git restore .gitmodules（D-001）
 
 ## 注意事項（踩過的坑）
 
