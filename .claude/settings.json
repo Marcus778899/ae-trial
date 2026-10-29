@@ -1,0 +1,92 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make check)",
+      "Bash(docker compose:*)",
+      "Bash(ae board:*)",
+      "Bash(ae task:*)",
+      "Bash(ae pr:*)",
+      "Bash(ae docs:*)",
+      "Bash(ae release open:*)",
+      "Bash(ae check-env)",
+      "Bash(ae check-env setup)",
+      "Bash(ae config)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py:*)",
+      "Bash(python3 -m http.server:*)",
+      "Bash(gh issue create:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "ask": [
+      "Bash(ae pr approve:*)",
+      "Bash(ae pr unblock:*)",
+      "Bash(ae release finish:*)",
+      "Bash(dangerouslyDisableSandbox:true)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh release create:*)",
+      "Bash(gh release delete:*)",
+      "Bash(gh release edit:*)",
+      "Bash(gh release upload:*)",
+      "Bash(gh repo:*)",
+      "Read(**/.env)",
+      "Edit(/.claude/**)",
+      "Edit(/CLAUDE.md)",
+      "Edit(/.agent/config.toml)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "excludedCommands": [
+      "docker compose *"
+    ],
+    "filesystem": {
+      "allowWrite": [
+        "~/.npm",
+        "~/.cache",
+        "~/Library/Caches",
+        "~/go",
+        "~/.m2",
+        "~/.gradle"
+      ],
+      "denyWrite": [
+        "./CLAUDE.md",
+        "./.agent/config.toml"
+      ]
+    },
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "*.githubusercontent.com",
+        "pypi.org",
+        "files.pythonhosted.org",
+        "registry.npmjs.org",
+        "proxy.golang.org",
+        "sum.golang.org",
+        "repo.maven.apache.org",
+        "repo1.maven.org",
+        "plugins.gradle.org",
+        "services.gradle.org"
+      ],
+      "allowLocalBinding": true
+    }
+  }
+}

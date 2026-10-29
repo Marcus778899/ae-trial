@@ -1,0 +1,9 @@
+.env
+.worktrees/
+.agent/tasks/
+.agent/reports/
+.hooklog/
+.venv
+node_modules
+__pycache__/
+coverage-reports/

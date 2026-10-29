@@ -1,0 +1,26 @@
+name: Sync release branch back
+
+# 由 ae adopt 產生。保底：ae release finish 會在本機把發版分支併回整合分支，通常這裡已經沒事做
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Sync develop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sync
+        run: .claude/skills/agent-engineering/bin/ae ci sync-branch
