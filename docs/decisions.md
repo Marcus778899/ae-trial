@@ -15,6 +15,12 @@
 
 ## 已決定
 
+### D-001 worktree 少了 `.gitmodules`，`ae pr open` 擋下，sandbox 內無法還原
+- 決定：A. 甲方在自己的終端機（sandbox 外）跑 `git -C <worktree> restore .gitmodules`，工具問題另外回報給 agent-engineering
+- 理由：先讓本單繼續，不等工具修正
+- 影響：project-init；之後新開的 worktree 若同樣缺檔，照此處理
+- 日期：2026-10-29
+
 <!-- 範本：
 ### D-001 一句話問題
 - 決定：A. …
