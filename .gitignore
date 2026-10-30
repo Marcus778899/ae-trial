@@ -7,3 +7,13 @@
 node_modules
 __pycache__/
 coverage-reports/
+# 覆蓋率與測試工具的產物
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+coverage/
+cover.out
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
