@@ -21,7 +21,7 @@
 
 ## 卡住／待甲方決定
 
-- project-init：等甲方在終端機跑 git restore .gitmodules（D-001）
+- project-init：qa PASS，待甲方決定 D-002 技術棧並核可設計
 
 ## 注意事項（踩過的坑）
 

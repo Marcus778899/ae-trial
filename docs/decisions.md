@@ -5,6 +5,12 @@
 
 ## 待決定
 
+### D-002 後端技術棧
+- 背景：v0.1.0 只做 Todo 後端 API、資料存記憶體；決定語言／框架與相依（決策分級②），定案後由 `stack-scaffold` 落實
+- 選項：A. Python 3.12 + FastAPI ／ B. Go + 標準庫 net/http ／ C. Node 22 + TypeScript + Fastify（比較見 `docs/architecture.md` §1）
+- 建議：A。輸入驗證與錯誤格式不用手寫，相依也少；CI 本來就有 Python，不用多裝一種語言
+- 提出：architect（project-init）
+
 <!-- 範本：
 ### D-001 一句話問題
 - 背景：為什麼要決定（1–2 行）
