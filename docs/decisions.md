@@ -11,6 +11,12 @@
 - 建議：A。輸入驗證與錯誤格式不用手寫，相依也少；CI 本來就有 Python，不用多裝一種語言
 - 提出：architect（project-init）
 
+### D-003 CI 抓不到私有工具 repo（agent-engineering），所有 PR 的 CI 都紅
+- 背景：`.github/workflows/ci.yml` 兩個 checkout 步驟用 `submodules: true`，沒帶 token，GitHub 回 repository not found。repo 已經有 `AE_TOKEN` secret，但 3ab9b7f 只更新了子模組，ci.yml 沒有改
+- 選項：A. 在 project-init 追加一項：兩個 checkout 加 `token: ${{ secrets.AE_TOKEN }}`，由 architect 改，qa 重新驗證 ／ B. 你自己改 ci.yml（或照工具文件設定）
+- 建議：A。ci.yml 這張單本來就在改，順便修掉最快。前提是 AE_TOKEN 能讀 Marcus778899/agent-engineering（Contents: read）
+- 提出：manager（project-init 的 CI）
+
 <!-- 範本：
 ### D-001 一句話問題
 - 背景：為什麼要決定（1–2 行）
